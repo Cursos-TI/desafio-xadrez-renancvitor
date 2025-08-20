@@ -20,8 +20,7 @@ void bispo()
 
     while (movimento <= 5)
     {
-        printf("Cima, Direita");
-        printf("\n");
+        printf("Cima, Direita\n");
         movimento++;
     }
 
@@ -34,9 +33,28 @@ void rainha()
 
     for (int i = 1; i <= 8; i++)
     {
-        printf("Esquerda");
-        printf("\n");
+        printf("Esquerda\n");
     }
+
+    printf("\n");
+}
+
+void cavalo()
+{
+    for (int i = 1; i <= 2; i++)
+    {
+        printf("Baixo\n");
+
+        for (int j = 1; j <= 1; j++)
+        {
+            if (i == 2)
+            {
+                printf("Esquerda\n");
+            }
+        }
+    }
+
+    printf("\n");
 }
 
 int main()
@@ -49,6 +67,9 @@ int main()
 
     printf("Movimentos da rainha:\n");
     rainha();
+
+    printf("Movimento do cavalo:\n");
+    cavalo();
 
     return 0;
 }
