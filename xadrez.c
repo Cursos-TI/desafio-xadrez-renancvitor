@@ -1,39 +1,38 @@
 #include <stdio.h>
 
-void torre()
+void torre(int movimento)
 {
-    int movimento = 1;
-
-    do
+    if (movimento > 0)
     {
+        torre(movimento - 1);
         printf("Direita");
-        printf("\n");
-        movimento++;
-    } while (movimento <= 5);
-
-    printf("\n");
-}
-
-void bispo()
-{
-    int movimento = 1;
-
-    while (movimento <= 5)
-    {
-        printf("Cima, Direita\n");
-        movimento++;
     }
 
     printf("\n");
 }
 
-void rainha()
+void bispo(int movimento)
 {
-    int movimento = 1;
-
-    for (int i = 1; i <= 8; i++)
+    if (movimento > 0)
     {
-        printf("Esquerda\n");
+        bispo(movimento - 1);
+        printf("Cima\n");
+
+        if (movimento > 0)
+        {
+            printf("Direita");
+        }
+    }
+
+    printf("\n");
+}
+
+void rainha(int movimento)
+{
+    if (movimento > 0)
+    {
+        rainha(movimento - 1);
+        printf("Esquerda");
     }
 
     printf("\n");
@@ -43,13 +42,13 @@ void cavalo()
 {
     for (int i = 1; i <= 2; i++)
     {
-        printf("Baixo\n");
+        printf("Cima\n");
 
         for (int j = 1; j <= 1; j++)
         {
             if (i == 2)
             {
-                printf("Esquerda\n");
+                printf("Direita\n");
             }
         }
     }
@@ -59,16 +58,18 @@ void cavalo()
 
 int main()
 {
-    printf("Movimentos da torre:\n");
-    torre();
+    int movimentoTorre = 5, movimentoBispo = 5, movimentoRainha = 8;
 
-    printf("Movimentos do bispo:\n");
-    bispo();
+    printf("\nMovimentos da torre:");
+    torre(movimentoTorre);
 
-    printf("Movimentos da rainha:\n");
-    rainha();
+    printf("\nMovimentos do bispo:");
+    bispo(movimentoBispo);
 
-    printf("Movimento do cavalo:\n");
+    printf("\nMovimentos da rainha:");
+    rainha(movimentoRainha);
+
+    printf("\nMovimento do cavalo:\n");
     cavalo();
 
     return 0;
